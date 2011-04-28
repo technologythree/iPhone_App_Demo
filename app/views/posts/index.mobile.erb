@@ -1,0 +1,15 @@
+<div data-role="header">
+  <h1>Posts</h1>
+	<%= link_to 'Add', new_post_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview">
+    <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post %>
+      <%= link_to 'edit post', edit_post_path(post), "data-icon" => "gear" %>
+    </li>
+    <% end %>
+  </ul>
+</div>
