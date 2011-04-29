@@ -13,3 +13,21 @@
     <% end %>
   </ul>
 </div>
+
+
+<div data-role="footer">
+	<div data-role="navbar">
+		<ul>
+			<% if current_user %>
+			  <li>
+					<%= link_to 'Log out', log_out_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+				</li>
+			<% else %>
+			  <li>
+			  	<%= link_to 'Sign up', sign_up_path, "data-icon" => "plus", "class" => "ui-btn-left" %>
+					<%= link_to 'Log in', log_in_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+			  </li>
+			<% end %>
+		</ul>
+	</div>
+</div>
