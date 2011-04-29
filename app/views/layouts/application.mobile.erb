@@ -17,7 +17,7 @@
 
 </head>
 <body>
-  <div data-role="page">
+  <div data-role="page" data-theme="a">
 		<% flash.each do |name, msg| %>
 		  <%= content_tag :div, msg, :id => "flash_#{name}" %>
 		<% end %>

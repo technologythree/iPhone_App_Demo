@@ -3,7 +3,7 @@
   <%= link_to 'Home', posts_url, "class" => "ui-btn-right", "data-icon" => "home", "data-iconpos" => "notext" %>
 </div>
 
-<div data-role="content">
+<div data-role="content" data-theme="a">
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
@@ -31,6 +31,6 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <p class="button"><%= f.submit "data-theme" => "a" %></p>
 <% end %>
 </div>
