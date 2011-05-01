@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,4 +82,5 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end

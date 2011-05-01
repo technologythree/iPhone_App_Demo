@@ -1,7 +1,9 @@
 <div data-role="header">
-  <h1>Posts</h1>
-	<%= link_to 'Add', new_post_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
-	<%= link_to 'Refresh', posts_url, "data-icon" => "refresh", "class" => "ui-btn-left", "rel" => "external", "data-iconpos" => "notext" %>
+  <h1>Articles</h1>
+	<% if current_user %>
+		<%= link_to 'Add', new_post_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+	<% end %>
+	<%= link_to 'Refresh', posts_path, "data-icon" => "refresh", "class" => "ui-btn-left", "rel" => "external", "data-iconpos" => "notext" %>
 </div>
  
 <div data-role="content">
@@ -9,7 +11,7 @@
     <% @posts.each do |post| %>
     <li data-theme="a">
       <%= link_to post.title, post, "rel" => "external" %><span class="ui-li-count ui-btn-up-c ui-btn-corner-all"><%= post.comments.size %></span>
-      <%= link_to 'edit post', edit_post_path(post), "data-icon" => "gear", "data-theme" => "a" %>
+      <% if current_user %><%= link_to 'edit post', edit_post_path(post), "data-icon" => "gear", "data-theme" => "a" %><% end %>
     </li>
     <% end %>
   </ul>

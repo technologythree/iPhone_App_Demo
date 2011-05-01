@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
     if @user.save
+      session[:user_id] = @user.id
       format.html { redirect_to(root_url, :notice => 'Signed Up.') }
       format.mobile { redirect_to(root_url, :notice => 'Signed Up.') }
       format.xml  { render :xml => root_url, :status => :created, :location => @user }

@@ -1,58 +1,24 @@
 <div class="toolbar">
-      <h1><%= @post.name %></h1>
-			<%= link_to 'Back', posts_path, :class => "button back" %>
-  </div>
+  <h1><%= @post.title %></h1>
+</div>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @post.name %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
   <%= @post.content %>
 </p>
 
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <p>
-    <b>Commenter:</b>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <b>Comment:</b>
-    <%= comment.body %>
-  </p>
-	<p>
-	  <%= link_to 'Destroy Comment', [comment.post, comment],
-	               :confirm => 'Are you sure?',
-	               :method => :delete %>
-	</p>
-<% end %>
-
-<h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'comment' %>
+<%= render 'comment_form' %>
  
 <br />
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if current_user %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
+
+<script type="text/javascript"> 
+	function brushWidth(newValue)
+	{
+		document.getElementById("range").innerHTML=newValue;
+	}
+</script>

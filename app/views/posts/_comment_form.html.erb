@@ -1,0 +1,21 @@
+<% if current_user %>
+	<h2>Add a Comment:</h2>
+	<%= form_for([@post, @post.comments.build]) do |f| %>
+
+		<div data-role="fieldcontain">
+			<label for="comment_rating">Rate Article:</label>
+			<input type="range" name="comment[rating]" id="comment_rating" min="1" max="5" value="1" step="1" onchange="brushWidth(this.value)"> 
+			<span id="range">1</span> 
+		</div>
+	  <div class="field">
+			<%= f.hidden_field :commenter, :value => "#{current_user.name}" %>
+	  </div>
+	  <div class="field">
+	    <%= f.label "Content:" %><br />
+	    <%= f.text_area :body %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+<% end %>

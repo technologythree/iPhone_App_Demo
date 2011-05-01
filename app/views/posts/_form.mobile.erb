@@ -1,7 +1,7 @@
 <%= form_for @post, :as => :post, :html => { :class => "form", :id => "ajax_post" } do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this article from being saved:</h2>
 
       <ul>
       <% @post.errors.full_messages.each do |msg| %>
@@ -24,6 +24,6 @@
     <%= f.text_area :content %>
   </div>
   <div class="actions">
-    <%= f.submit "data-theme" => "a" %>
+    <%= f.submit "Save", "data-theme" => "a" %>
   </div>
 <% end %>

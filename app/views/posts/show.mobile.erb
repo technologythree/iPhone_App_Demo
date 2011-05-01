@@ -6,36 +6,6 @@
  
 <div data-role="content" data-theme="a">
   <%= @post.content %>
-	
-	<% if @post.comments.size > 0 %>
-	<h2>Comments:</h2>
-    <% @post.comments.each do |comment| %>
-    <p>
-      <em><%= time_ago_in_words(comment.created_at) %> ago</em> <strong><%= comment.commenter %></strong> commented: <br>
-      <%= comment.body %>
-			<%= link_to 'Delete', [comment.post, comment], :method => :delete, "data-icon" => "delete", "data-role" => "button", "data-iconpos" => "top" %>
-    </p>
-    <% end %>
-		<% end %>
-
-	<h2>Add a comment:</h2>
-	<%= form_for([@post, @post.comments.build]) do |f| %>
-	
-	  <div class="field">
-	    <%= f.label :commenter %><br />
-			<% if current_user %>
-				<%= f.text_field :commenter, :value => "#{current_user.name}", :disabled => "true" %>
-			<% else %>
-				<%= f.text_field :commenter %>
-			<% end %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :body %><br />
-	    <%= f.text_area :body %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit "data-theme" => "a" %>
-	  </div>
-	<% end %>
-
+	<%= render 'comment' %>
+	<%= render 'comment_form' %>
 </div>
