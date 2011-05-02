@@ -5,7 +5,7 @@
     <% (1..comment.rating).each do |i| %><%= image_tag("rating.png", :alt => "Rating Star", :border => "0") %> <% end %> <em><%= time_ago_in_words(comment.created_at) %> ago</em> <strong><%= comment.commenter %></strong> commented: <br>
     <%= comment.body %>
 		<% if current_user and current_user.name == comment.commenter %>
-			<%= link_to 'Delete', [comment.post, comment], :method => :delete, "data-icon" => "delete", "data-role" => "button", "data-iconpos" => "top" %>
+			<%= link_to 'Delete', [comment.post, comment], :method => :delete, "data-icon" => "delete", "data-role" => "button" %>
 		<% end %>
   </p>
   <% end %>

@@ -3,7 +3,7 @@
 	<% if current_user %>
 		<%= link_to 'Add', new_post_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
 	<% end %>
-	<%= link_to 'Refresh', posts_path, "data-icon" => "refresh", "class" => "ui-btn-left", "rel" => "external", "data-iconpos" => "notext" %>
+	<%= link_to 'Refresh', posts_path, "data-icon" => "refresh", "class" => "ui-btn-left", "data-iconpos" => "notext" %>
 </div>
  
 <div data-role="content">
