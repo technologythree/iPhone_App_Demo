@@ -10,7 +10,7 @@
   <ul data-role="listview">
     <% @posts.each do |post| %>
     <li data-theme="a">
-      <%= link_to post.title, post, "rel" => "external" %><span class="ui-li-count ui-btn-up-c ui-btn-corner-all"><%= post.comments.size %></span>
+      <%= link_to post.title, post %><span class="ui-li-count ui-btn-up-c ui-btn-corner-all"><%= post.comments.size %></span>
       <% if current_user %><%= link_to 'edit post', edit_post_path(post), "data-icon" => "gear", "data-theme" => "a" %><% end %>
     </li>
     <% end %>
