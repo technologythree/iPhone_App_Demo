@@ -15,8 +15,9 @@
 	<%= javascript_include_tag :all %>
 	<script type="text/javascript">
 	    $(document).bind("mobileinit", function(){
-	        $.mobile.ajaxLinksEnabled= false;
-					$.mobile.ajaxFormsEnabled= true;
+	       // $.mobile.ajaxLinksEnabled= false;
+				//	$.mobile.ajaxFormsEnabled= true;
+					$.mobile.ajaxEnabled= false;
 	    });
 	</script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
@@ -24,9 +25,6 @@
 </head>
 <body>
   <div data-role="page" data-theme="a">
-		<!-- <% flash.each do |name, msg| %>
-				  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-				<% end %> -->
     <%= yield %>
   </div>
 </body>
