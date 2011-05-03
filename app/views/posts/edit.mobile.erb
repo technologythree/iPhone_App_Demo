@@ -1,5 +1,6 @@
-<div data-role="header" data-theme="a">
-  <h1>Editing Article</h1>
+<div data-role="header" data-position="inline" data-theme="a">
+	<%= link_to 'Back', post_path, "data-rel" => "back", "data-icon" => "arrow-l", "class" => "ui-btn-left" %>  
+	<h1>Editing Articlde</h1>
 	<%= link_to 'Delete', @post, :method => :delete, "data-icon" => "delete", "class" => "ui-btn-right" %>
 </div>
  
