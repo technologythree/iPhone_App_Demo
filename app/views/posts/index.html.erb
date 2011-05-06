@@ -4,7 +4,7 @@
 <% @posts.each do |post| %>
   <tr valign="top" bgcolor="<%= cycle('', '#eee') %>">
     <td valign="top">
-			<strong><%= link_to post.title, post %></strong>&nbsp;
+			<strong><%= link_to post.title, post %></strong>&nbsp;(<em><%= pluralize(post.comments.size, 'comment') %></em>)&nbsp;
 			<% if current_user %><%= link_to 'Edit', edit_post_path(post) %><% end %>&nbsp;
 			<% if current_user %><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %><br>
 			<em><%= time_ago_in_words(post.created_at) %> ago</em><br>
